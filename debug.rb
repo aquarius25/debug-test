@@ -1,3 +1,5 @@
+require "pp"
+
 class Animal
   def bark
     p 'Yeah, it’s barking.'
@@ -21,7 +23,7 @@ class MechaDog < Dog
   end
 
   def proc arg
-    path = (arg.split[0]).split('/')[1..-1]
+    path = (arg.split[1]).split('/')[1..-1]
     if path.nil?
       keys=[]
       @data.each do |key, _value|
@@ -44,3 +46,5 @@ mdog.bark
 p mdog.age
 p mdog.name
 mdog.proc "GET /bsd HTTP/1.1"
+
+# split methodは文字列を分割し、配列を返す
